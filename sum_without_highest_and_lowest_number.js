@@ -18,6 +18,28 @@ I have created other katas. Have a look if you like coding and challenges.
 
 */
 
-function sumArray(array) {
+const sumArray = (array) => {
+  let highest = 0;
+  let lowest = 0;
+  let sum = 0;
+  
+  if(array === null || array.length === 0) {
+    return 0;
+  }
 
+  for(let i = 1; i < array.length; i++) {
+    if(array[i] > array[highest]) {
+      highest = i;
+    }
+    if(array[i] < array[lowest]) {
+      lowest = i;
+    }
+  }
+  for(let j = 0; j < array.length; j++) {
+    if(j !== highest && j !== lowest) {
+      sum += array[j];
+    }
+  }
+
+  return sum;
 }
